@@ -9,11 +9,10 @@ public class Player : MonoBehaviour
     [SerializeField] private bool _grounded = false;
     private bool _jumpCD = false;
     private Rigidbody2D _rb;
-    [SerializeField] private Animator _playerAnim;
-    [SerializeField] private SpriteRenderer _playerSprite;
+    [SerializeField] private PlayerAnims _anims;
     // Start is called before the first frame update
     void Start()
-    { 
+    {
         _rb = GetComponent<Rigidbody2D>();
     }
 
@@ -21,8 +20,10 @@ public class Player : MonoBehaviour
     void Update()
     {
         Movement();
+        Attack();
         Grounded();
     }
+
     void Movement()
     {
         float horizontal = Input.GetAxis("Horizontal");
@@ -30,30 +31,19 @@ public class Player : MonoBehaviour
 
         if (_grounded == true && Input.GetKeyDown(KeyCode.Space))
         {
+            _anims.JumpSwitch(true);
             _rb.velocity = new Vector2(_rb.velocity.x, _jumpPower);
             _grounded = false;
             StartCoroutine(JumpCooldown());
         }
-        AnimationChecks(horizontal);
+        _anims.AnimationChecks(horizontal);
     }
 
-    void AnimationChecks(float Direction)
+    void Attack()
     {
-        if (Direction > 0)
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            _playerSprite.flipX = false;
-            _playerAnim.SetBool("Running", true);
-        }
-
-        else if (Direction < 0)
-        {
-            _playerSprite.flipX = true;
-            _playerAnim.SetBool("Running", true);
-        }
-
-        else if(Direction == 0)
-        {
-            _playerAnim.SetBool("Running", false);
+            _anims.AttackAnim();
         }
     }
 
@@ -64,9 +54,9 @@ public class Player : MonoBehaviour
 
         if (hitInfo.collider != null)
         {
-            Debug.Log(hitInfo.collider);
             if (_jumpCD == false)
             {
+                _anims.JumpSwitch(false);
                 _grounded = true;
             }
         }
