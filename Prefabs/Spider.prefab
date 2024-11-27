@@ -9,10 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 681940324655053379}
-  - component: {fileID: 6981444785526362926}
   - component: {fileID: 3526197450957222810}
   - component: {fileID: 5814787982648978375}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spider Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35,33 +34,6 @@ Transform:
   - {fileID: 2009806524230765130}
   m_Father: {fileID: 711187182860594357}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &6981444785526362926
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1416735002241213991}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 6
 --- !u!114 &3526197450957222810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74,9 +46,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d1ab4b38cb46f0439a112a1004508f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 3
-  speed: 1
+  health: 1
   loot: 1
+  speed: 1.5
   pointA: {fileID: 3114860276113384609}
   pointB: {fileID: 2380479374342554188}
 --- !u!70 &5814787982648978375
@@ -125,7 +97,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2380479374342554188}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Point B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -141,7 +113,7 @@ Transform:
   m_GameObject: {fileID: 5045111607411002259}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.957005, y: 0, z: 0}
+  m_LocalPosition: {x: -5.7, y: 0, z: 0}
   m_LocalScale: {x: 1.5233, y: 1.5233, z: 1.5233}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -156,7 +128,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3114860276113384609}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Point A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -172,7 +144,7 @@ Transform:
   m_GameObject: {fileID: 7416105143149524448}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.626978, y: 0, z: 0}
+  m_LocalPosition: {x: 2.25, y: 0, z: 0}
   m_LocalScale: {x: 1.5233, y: 1.5233, z: 1.5233}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -187,7 +159,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 711187182860594357}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -204,7 +176,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 681940324655053379}
@@ -223,7 +195,7 @@ GameObject:
   - component: {fileID: 2009806524230765130}
   - component: {fileID: 3557330746863513069}
   - component: {fileID: 4801243681268889716}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spider Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

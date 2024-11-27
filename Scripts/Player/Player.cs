@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("Collider Detected: Player");
         _rb = GetComponent<Rigidbody2D>();
     }
 
@@ -36,7 +37,7 @@ public class Player : MonoBehaviour
             _grounded = false;
             StartCoroutine(JumpCooldown());
         }
-        _anims.AnimationChecks(horizontal);
+        _anims.MovementChecks(horizontal);
     }
 
     void Attack()

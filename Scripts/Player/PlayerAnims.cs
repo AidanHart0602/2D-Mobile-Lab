@@ -10,6 +10,8 @@ public class PlayerAnims : MonoBehaviour
     private SpriteRenderer _arcSprite;
     private Animator _playerAnim;
     private SpriteRenderer _playerSprite;
+    [SerializeField]
+    private Transform _arcTransform;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,27 +33,31 @@ public class PlayerAnims : MonoBehaviour
 
     public void AttackAnim()
     {
-        _playerAnim.SetTrigger("Attack");
-        _swordArc.SetTrigger("ArcActive");
+        if(_playerAnim.GetCurrentAnimatorStateInfo(0).IsName("Reg Jump Landing"))
+        {
+            return;
+        }
+        else
+        {
+            _playerAnim.SetTrigger("Attack");
+            _swordArc.SetTrigger("ArcActive");
+        }  
     }
 
-    public void AnimationChecks(float Direction)
+    public void MovementChecks(float Direction)
     {
-
-
         if (Direction > 0)
         {
             _playerAnim.SetBool("Running", true);
-            _arcSprite.flipX = false;
             _playerSprite.flipX = false;
+            _arcTransform.transform.rotation = Quaternion.Euler(0, 0, 0);
         }
-
 
         else if (Direction < 0)
         {
             _playerAnim.SetBool("Running", true);
-            _arcSprite.flipX = true;
             _playerSprite.flipX = true;
+            _arcTransform.transform.rotation = Quaternion.Euler(0, 180, 0);
         }
 
         else if (Direction == 0)
