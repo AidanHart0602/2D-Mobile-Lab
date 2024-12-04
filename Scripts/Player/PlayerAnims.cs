@@ -39,11 +39,20 @@ public class PlayerAnims : MonoBehaviour
         }
         else
         {
+            _playerAnim.SetBool("Alive", false);
             _playerAnim.SetTrigger("Attack");
             _swordArc.SetTrigger("ArcActive");
         }  
     }
 
+    public void HitAnim()
+    {
+        _playerAnim.SetTrigger("Hit");
+    }
+    public void Death()
+    {
+        _playerAnim.SetTrigger("Defeated");
+    }
     public void MovementChecks(float Direction)
     {
         if (Direction > 0)

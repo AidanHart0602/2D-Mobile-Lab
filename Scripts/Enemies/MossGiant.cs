@@ -13,14 +13,14 @@ public class MossGiant : Enemy, IDamage
         Health = base.health;
     }
     public void Damage() 
-    {
-        anim.SetBool("InCombat", true);
-        anim.SetTrigger("Injured");
+    {        
         Health = Health - 1;
+        anim.SetTrigger("Injured");
         isHit = true;
-        if(Health < 1)
+        anim.SetBool("InCombat", true);
+        if (Health < 1)
         {
-            Destroy(transform.parent.gameObject);
+            Death();
         }
     }
 }
