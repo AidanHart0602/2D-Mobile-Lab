@@ -5,7 +5,11 @@ using UnityEngine;
 public class Shop : MonoBehaviour
 {
     public GameObject _merchantUI;
-
+    private AdManager _adManager;
+    private void Start()
+    {
+        _adManager = FindFirstObjectByType<AdManager>();
+    }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
@@ -16,6 +20,7 @@ public class Shop : MonoBehaviour
                 UIManager.Instance.GemCount(player.Loot);
             }
             _merchantUI.SetActive(true);
+            _adManager.LoadAd();
         }
     }
 
